@@ -7,7 +7,7 @@
 
 #dnl-navbar-icon {
     border-radius: 50vh;
-    padding: 1px 5vw 1px 5vw;
+    /*padding: 1px 5vw 1px 5vw;*/
     font-weight: 600;
 }
 
@@ -38,11 +38,31 @@
     height: 100vh;
 }
 
-.dhl-card-course {
+.dhl-card {
+	transition: 0.2s all;
+	list-style: none;
+}
+
+.dhl-card:hover {
+	background-color: rgb(235, 235, 235);
+}
+
+.dhl-card_img {
+	width: 100px;
+	border-radius: 50%;
 }
 
 .dnl-img {
     position: relative;
-    width: 20%;
+	width: 20%;
     height: 200px;
+}
+
+.dhl-course_full_img {
+	height: 100%;
+	border-radius: 50%;
+}
+
+a.list-group-item-active {
+	text-decoration: none;
 }

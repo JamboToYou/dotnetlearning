@@ -13,14 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::middleware('auth:api')->get('/user', 'UsersController@getUser');
 
 Route::post('/register', 'RegisterController@register');
 
 Route::group(['prefix' => 'course'], function () {
-		Route::get('/all', 'CoursesController@getAll');
-		Route::group(['middleware' => ['auth:api']], function () {
+	Route::get('/all', 'CoursesController@getAll');
+	Route::get('/{id}', 'CoursesController@getCourse');
+	Route::group(['middleware' => ['auth:api']], function () {
+		Route::post('/', 'CoursesController@addCourse');
+		Route::patch('/{id}', 'CoursesController@updateCourse');
 	});
 });

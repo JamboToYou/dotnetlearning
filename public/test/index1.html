@@ -2,236 +2,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <title>DotNetLearning</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<title>DotNetLearning</title>
 </head>
 
 <body>
-    <div class="container-fluid pt-2">
-        <nav class="navbar navbar-expand-md navbar-light bg-light dnl-navbar">
-            <a href="index.html" class="navbar-brand">
-                Second Page
-            </a>
-        </nav>
-        <div class="row justify-content-center position-relative">
-            <div class="col-2">
-                <ul class="m-2 btn-group-vertical p-0 w-100">
-                    <button class="btn btn-light m-1 w-100">First</button>
-                    <button class="btn btn-light m-1 w-100">Second</button>
-                    <button class="btn btn-light m-1 w-100" type="button" data-toggle="collapse" data-target="#multiCollapseExample2"
-                        aria-expanded="false" aria-controls="multiCollapseExample2">
-                        Toggle second element
-                    </button>
-                    <ul class="collapse p-0 m-2 w-100" id="multiCollapseExample2">
-                        <button class="btn btn-light m-1 w-100 m-1">Second</button>
-                        <button class="btn btn-light m-1 w-100 m-1">Second</button>
-                        <button class="btn btn-light m-1 w-100 m-1">Second</button>
-                    </ul>
-                    <button class="btn btn-light m-1 w-100">Third</button>
-                    <button class="btn btn-light m-1 w-100">Fourth</button>
-                    <button class="btn btn-light m-1 w-100">Fifth</button>
-                </ul>
-            </div>
-            <div class="col-10 content">
-                <nav id="navbar-example2" class="navbar navbar-light bg-light top">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#fat">@fat</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#mdo">@mdo</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#one">one</a>
-                                <a class="dropdown-item" href="#two">two</a>
-                                <div role="separator" class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#three">three</a>
-                                <a class="dropdown-item" href="#four">four</a>
-                                <a class="dropdown-item" href="#five">five</a>
-                                <a class="dropdown-item" href="#six">six</a>
-                                <a class="dropdown-item" href="#seven">seven</a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="gg" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-                    <div class="m-3 dhl-card-course">
-                        <div class="card bg-light text-left flex-row flex-left dhl-card">
-                            <img class="card-img-left position-relative dnl-img" src="placeholderimg.jpg" alt="img">
-                            <div class="card-body">
-                                <h4 class="card-title">Course</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-                                    nam
-                                    perspiciatis voluptas enim iste repellendus possimus consectetur quae fuga numquam!</p>
-                                <br>
-                                <div class="btn-group align-content-end float-right">
-                                    <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#chapters1"
-                                        aria-expanded="false" aria-controls="chapters1">Show chapters</button>
-                                    <button class="btn btn-outline-primary">Enroll</button>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="collapse list-group" id="chapters1">
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                        </ul>
-                    </div>
-                    <div class="m-3 border-secondary">
-                        <div class="card bg-light text-left flex-row flex-left dhl-card">
-                            <img class="card-img-left position-relative dnl-img" src="placeholderimg.jpg" alt="img">
-                            <div class="card-body">
-                                <h4 class="card-title">Course</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-                                    nam
-                                    perspiciatis voluptas enim iste repellendus possimus consectetur quae fuga numquam!</p>
-                                <br>
-                                <div class="btn-group align-content-end float-right">
-                                    <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#chapters2"
-                                        aria-expanded="false" aria-controls="chapters2">Show chapters</button>
-                                    <button class="btn btn-outline-primary">Enroll</button>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="collapse list-group" id="chapters2">
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                        </ul>
-                    </div>
-                    <div class="m-3 border-secondary">
-                        <div class="card bg-light text-left flex-row flex-left dhl-card">
-                            <img class="card-img-left position-relative dnl-img" src="placeholderimg.jpg" alt="img">
-                            <div class="card-body">
-                                <h4 class="card-title">Course</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-                                    nam
-                                    perspiciatis voluptas enim iste repellendus possimus consectetur quae fuga numquam!</p>
-                                <br>
-                                <div class="btn-group align-content-end float-right">
-                                    <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#chapters3"
-                                        aria-expanded="false" aria-controls="chapters3">Show chapters</button>
-                                    <button class="btn btn-outline-primary">Enroll</button>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="collapse list-group" id="chapters3">
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                        </ul>
-                    </div>
-                    <div class="m-3 border-secondary">
-                        <div class="card bg-light text-left flex-row flex-left dhl-card">
-                            <img class="card-img-left position-relative dnl-img" src="placeholderimg.jpg" alt="img">
-                            <div class="card-body">
-                                <h4 class="card-title">Course</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-                                    nam
-                                    perspiciatis voluptas enim iste repellendus possimus consectetur quae fuga numquam!</p>
-                                <br>
-                                <div class="btn-group align-content-end float-right">
-                                    <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#chapters4"
-                                        aria-expanded="false" aria-controls="chapters4">Show chapters</button>
-                                    <button class="btn btn-outline-primary">Enroll</button>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="collapse list-group" id="chapters4">
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                            <a class="list-group-item list-group-item-active">
-                                <button class="fa fa-book btn btn-outline-primary"></button>
-                                Chapter title
-                            </a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container-fluid p-0 pt-2">
+		<nav class="row navbar navbar-expand-md navbar-light bg-light dnl-navbar">
+			<div class="col-2 col-md-4 col-lg-5">
+				<button class="btn btn-light m-auto" type="button" data-toggle="collapse" data-target="#dhl-side_navigation"
+				 aria-controls="dhl-side_navigation" aria-expanded="false" aria-label="Toggle navigation">
+					<h5>Navigation</h5>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<a href="index.html" class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-8 navbar-brand btn btn-outline-primary text-primary"
+			 id="dnl-navbar-icon">
+				<b class="display-4 text-dark">.NET</b> Learning
+			</a>
+		</nav>
+		<div class="row justify-content-center position-relative">
+			<div class="col-12 col-md-3 col-lg-2 collapse" id="dhl-side_navigation">
+				<ul class="m-2 btn-group-vertical p-0 w-100">
+					<button class="btn btn-light m-1 w-100">First</button>
+					<button class="btn btn-light m-1 w-100">Second</button>
+					<button class="btn btn-light m-1 w-100" type="button" data-toggle="collapse" data-target="#multiCollapseExample2"
+					 aria-expanded="false" aria-controls="multiCollapseExample2">
+						Toggle
+					</button>
+					<ul class="collapse navbar-collapse p-0 m-2 w-100" id="multiCollapseExample2">
+						<button class="btn btn-light m-1 w-100 m-1">Second</button>
+						<button class="btn btn-light m-1 w-100 m-1">Second</button>
+						<button class="btn btn-light m-1 w-100 m-1">Second</button>
+					</ul>
+					<button class="btn btn-light m-1 w-100">Third</button>
+					<button class="btn btn-light m-1 w-100">Fourth</button>
+					<button class="btn btn-light m-1 w-100">Fifth</button>
+				</ul>
+			</div>
+			<div class="col content">
+				<nav id="navbar-example2" class="navbar navbar-light bg-light top">
+					<a class="navbar-brand" href="#">Navbar</a>
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="nav-link" href="#course1">@course1</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#course2">@course2</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+							 aria-expanded="false">Dropdown</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#course3">@course3</a>
+								<a class="dropdown-item" href="#two">two</a>
+								<div role="separator" class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#three">three</a>
+								<a class="dropdown-item" href="#four">four</a>
+								<a class="dropdown-item" href="#five">five</a>
+								<a class="dropdown-item" href="#six">six</a>
+								<a class="dropdown-item" href="#seven">seven</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+				<ul class="gg" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+					<div class="card dhl-course_full">
+						<div class="card-header pt-5 pl-5 pr-5 pb-4 row">
+							<div class="col-7 col-md-8">
+								<h1 class="display-4 card-title">Course title</h1>
+								<a href="#" class="card-link"><h5>author</h5></a>
+								<br>
+								<button class="btn btn-primary">Enter</button>
+							</div>
+							<img class="img-thumbnail dhl-course_full_img col-4 col-md-3 m-1" src="./csharp.png" alt="course image">
+						</div>
+						<div class="card-body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem soluta, itaque iste odio natus similique dolores tenetur earum maiores magni nihil doloremque veniam consectetur eligendi, molestiae officiis? Voluptatum, alias inventore sunt enim minus delectus blanditiis voluptates mollitia nam fugiat architecto odit cupiditate numquam aperiam porro incidunt sit recusandae, repellat asperiores aspernatur ab eos. Quod cumque amet possimus maiores id quis magni ut exercitationem quasi quam, porro molestias natus tempora nam impedit! Fuga impedit accusamus dolorum ab repellat laborum vel, velit quia fugit! Ullam quasi soluta nobis cumque, reprehenderit, vero est aut at placeat numquam adipisci unde natus quibusdam velit totam.</p>
+							<ul class="list-group">
+								<a href="#" class="list-group-item">first</a>
+								<a href="#" class="list-group-item">Secind</a>
+								<a href="#" class="list-group-item">tHIRD</a>
+								<a href="#" class="list-group-item">fourtH</a>
+								<a href="#" class="list-group-item">FiFtH</a>
+							</ul>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
 </body>
 
 </html>

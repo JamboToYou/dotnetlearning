@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Router from 'react-router-dom';
 
 import DNLNavbar from './Navbar/DNLNavbar';
 import DNLSidebar from './Sidebar/DNLSidebar';
@@ -21,8 +22,10 @@ export default class DNLMain extends Component {
 
 if (document.getElementById('root')) {
 	ReactDOM.render
-	(
-		<DNLMain />,
+		(
+		<Router>
+			<DNLMain />
+		</Router>,
 		document.getElementById('root')
-	);
+		);
 }
