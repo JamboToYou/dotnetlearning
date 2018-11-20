@@ -10472,15 +10472,22 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.gg {
+.dhl-container-main {
   overflow-y: scroll;
   height: 80vh;
   position: relative;
   padding: 20px;
+  padding-bottom: 20vh;
 }
 
 #dnl-navbar-icon {
-  border-radius: 5px;
+  border-radius: 50vh;
+  /*padding: 1px 5vw 1px 5vw;*/
+  font-weight: 600;
+}
+
+#dhl-navbar-icon b {
+  font-weight: 900;
 }
 
 #dnl-navbar-icon:hover {
@@ -10489,6 +10496,10 @@ a.text-dark:focus {
 
 .dnl-navbar {
   border-bottom: 1px solid rgba(0, 0, 255, 0.37);
+}
+
+.dnl-navbar-btn-group {
+  margin: 0;
 }
 
 .container-fluid {
@@ -10502,9 +10513,33 @@ a.text-dark:focus {
   height: 100vh;
 }
 
+.dhl-card {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  list-style: none;
+}
+
+.dhl-card:hover {
+  background-color: #ebebeb;
+}
+
+.dhl-card_img {
+  width: 100px;
+  border-radius: 50%;
+}
+
 .dnl-img {
   position: relative;
   width: 20%;
   height: 200px;
+}
+
+.dhl-course_full_img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+a.list-group-item-active {
+  text-decoration: none;
 }
 

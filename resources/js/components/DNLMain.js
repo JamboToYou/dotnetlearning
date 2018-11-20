@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Router from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import DNLNavbar from './Navbar/DNLNavbar';
 import DNLSidebar from './Sidebar/DNLSidebar';
@@ -9,7 +9,7 @@ import DNLBody from './Body/DNLBody';
 export default class DNLMain extends Component {
 	render() {
 		return (
-			<div className="container-fluid">
+			<div className="container-fluid p-0 pt-2">
 				<DNLNavbar />
 				<div className="row justify-content-center position-relative">
 					<DNLSidebar />
@@ -23,9 +23,9 @@ export default class DNLMain extends Component {
 if (document.getElementById('root')) {
 	ReactDOM.render
 		(
-		<Router>
+		<BrowserRouter>
 			<DNLMain />
-		</Router>,
+		</BrowserRouter>,
 		document.getElementById('root')
 		);
 }

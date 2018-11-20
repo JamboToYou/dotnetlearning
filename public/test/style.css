@@ -1,8 +1,9 @@
-.gg {
+.dhl-container-main {
     overflow-y: scroll;
     height: 80vh;
     position: relative;
     padding: 20px;
+	padding-bottom: 20vh;
 }
 
 #dnl-navbar-icon {

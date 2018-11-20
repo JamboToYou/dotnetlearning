@@ -14,14 +14,14 @@
 <body>
 	<div class="container-fluid p-0 pt-2">
 		<nav class="row navbar navbar-expand-md navbar-light bg-light dnl-navbar">
-			<div class="col-2 col-md-4 col-lg-5">
+			<div class="col-1 col-md-4 col-lg-5">
 				<button class="btn btn-light m-auto" type="button" data-toggle="collapse" data-target="#dhl-side_navigation"
 				 aria-controls="dhl-side_navigation" aria-expanded="false" aria-label="Toggle navigation">
 					<h5>Navigation</h5>
 					<span class="navbar-toggler-icon"></span>
 				</button>
 			</div>
-			<a href="index.html" class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-8 navbar-brand btn btn-outline-primary text-primary"
+			<a href="index1.html" class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-8 navbar-brand btn btn-outline-primary text-primary"
 			 id="dnl-navbar-icon">
 				<b class="display-4 text-dark">.NET</b> Learning
 			</a>
@@ -71,28 +71,23 @@
 						</li>
 					</ul>
 				</nav>
-				<ul class="dhl-container-main" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-					<div class="card dhl-course_full">
-						<div class="card-header pt-5 pl-5 pr-5 pb-4 row">
-							<div class="col-7 col-md-8">
-								<h1 class="display-4 card-title">Course title</h1>
-								<a href="#" class="card-link"><h5>author</h5></a>
-								<br>
-								<button class="btn btn-primary">Enter</button>
-							</div>
-							<img class="img-thumbnail dhl-course_full_img col-4 col-md-3 m-1" src="./csharp.png" alt="course image">
+				<ul class="gg" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+					<form class="offset-1 col-6 offset-md-2 col-md-5 col-lg-4 mt-md-5">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 						</div>
-						<div class="card-body">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem soluta, itaque iste odio natus similique dolores tenetur earum maiores magni nihil doloremque veniam consectetur eligendi, molestiae officiis? Voluptatum, alias inventore sunt enim minus delectus blanditiis voluptates mollitia nam fugiat architecto odit cupiditate numquam aperiam porro incidunt sit recusandae, repellat asperiores aspernatur ab eos. Quod cumque amet possimus maiores id quis magni ut exercitationem quasi quam, porro molestias natus tempora nam impedit! Fuga impedit accusamus dolorum ab repellat laborum vel, velit quia fugit! Ullam quasi soluta nobis cumque, reprehenderit, vero est aut at placeat numquam adipisci unde natus quibusdam velit totam.</p>
-							<ul class="list-group">
-								<a href="#" class="list-group-item">first</a>
-								<a href="#" class="list-group-item">Secind</a>
-								<a href="#" class="list-group-item">tHIRD</a>
-								<a href="#" class="list-group-item">fourtH</a>
-								<a href="#" class="list-group-item">FiFtH</a>
-							</ul>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 						</div>
-					</div>
+						<div class="form-group form-check">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Check me out</label>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
 				</ul>
 			</div>
 		</div>
