@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
-    public function getCourses()
+    public function getAll()
     {
-        //
+        
     }
 }

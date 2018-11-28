@@ -12,3 +12,39 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.gg {
+  overflow-y: scroll;
+  height: 80vh;
+  position: relative;
+  padding: 20px;
+}
+
+#dnl-navbar-icon {
+  border-radius: 5px;
+}
+
+#dnl-navbar-icon:hover {
+  color: white;
+}
+
+.dnl-navbar {
+  border-bottom: 1px solid rgba(0, 0, 255, 0.37);
+}
+
+.container-fluid {
+  position: fixed;
+  border: 1px solid rgba(0, 0, 255, 0.37);
+  height: 100vh;
+  /* background-color: rgb(187, 75, 75); */
+}
+
+.content {
+  height: 100vh;
+}
+
+.dnl-img {
+  position: relative;
+  width: 20%;
+  height: 200px;
+}

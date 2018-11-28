@@ -233,3 +233,5 @@ class DNLBody extends React.Component {
 		)
 	}
 }
+
+export default DNLBody;

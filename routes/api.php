@@ -18,3 +18,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::post('/register', 'RegisterController@register');
+
+Route::group(['prefix' => 'course'], function () {
+		Route::get('/all', 'CoursesController@getAll');
+		Route::group(['middleware' => ['auth:api']], function () {
+	});
+});

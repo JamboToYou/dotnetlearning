@@ -6,7 +6,13 @@
 }
 
 #dnl-navbar-icon {
-    border-radius: 5px;
+    border-radius: 50vh;
+    padding: 1px 5vw 1px 5vw;
+    font-weight: 600;
+}
+
+#dhl-navbar-icon b {
+    font-weight: 900;
 }
 
 #dnl-navbar-icon:hover {
@@ -15,6 +21,10 @@
 
 .dnl-navbar {
     border-bottom: 1px solid rgba(0, 0, 255, 0.37);
+}
+
+.dnl-navbar-btn-group {
+    margin: 0;
 }
 
 .container-fluid {
