@@ -15,7 +15,8 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', 'UsersController@getUser');
 
-Route::post('/register', 'RegisterController@register');
+Route::post('/register', 'Auth\RegisterController@create');
+Route::post('/login', 'Auth\LoginController@login');
 
 Route::group(['prefix' => 'course'], function () {
 	Route::get('/all', 'CoursesController@getAll');
