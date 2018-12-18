@@ -62324,10 +62324,10 @@ var DNLRegister = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (_ref = DNLRegister.__proto__ || Object.getPrototypeOf(DNLRegister)).call.apply(_ref, [this].concat(args)));
 
 		_this.state = {
-			name: '',
+			first_name: '',
+			last_name: '',
 			email: '',
-			password: '',
-			password_confirmation: ''
+			password: ''
 		};
 		return _this;
 	}
@@ -62339,24 +62339,24 @@ var DNLRegister = function (_Component) {
 
 			e.preventDefault();
 			var _state = this.state,
-			    name = _state.name,
+			    first_name = _state.first_name,
+			    last_name = _state.last_name,
 			    email = _state.email,
-			    password = _state.password,
-			    password_confirmation = _state.password_confirmation;
+			    password = _state.password;
 
 			axios.post('api/register', {
-				name: name,
+				first_name: first_name,
+				last_name: last_name,
 				email: email,
-				password: password,
-				password_confirmation: password_confirmation
+				password: password
 			}).then(function (response) {
 				_this2.setState({ err: false });
-				_this2.props.history.push("home");
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/home' });
 			}).catch(function (error) {
-				_this2.refs.name.value = "";
+				_this2.refs.first_name.value = "";
+				_this2.refs.last_name.value = "";
 				_this2.refs.password.value = "";
 				_this2.refs.email.value = "";
-				_this2.refs.confirm.value = "";
 				_this2.setState({ err: true });
 			});
 		}
@@ -62375,6 +62375,13 @@ var DNLRegister = function (_Component) {
 			if (this.state.err === false) {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/' });
 			}
+			if (this.state.err === true) {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					null,
+					'Whoops!'
+				);
+			}
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'form',
 				{ className: 'form-horizontal', role: 'form', method: 'POST', onSubmit: this.onSubmit.bind(this) },
@@ -62383,13 +62390,13 @@ var DNLRegister = function (_Component) {
 					{ className: 'form-group' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'label',
-						{ 'for': 'name', className: 'col-md-4 control-label' },
-						'Name'
+						{ htmlFor: 'first_name', className: 'col-md-4 control-label' },
+						'First Name'
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
 						{ className: 'col-md-6' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'name', type: 'text', className: 'form-control', ref: 'name', name: 'name', onChange: this.onChange.bind(this), required: true, autofocus: true })
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'first_name', type: 'text', className: 'form-control', ref: 'first_name', name: 'first_name', onChange: this.onChange.bind(this), required: true, autofocus: true })
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -62397,7 +62404,21 @@ var DNLRegister = function (_Component) {
 					{ className: 'form-group' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'label',
-						{ 'for': 'email', className: 'col-md-4 control-label' },
+						{ htmlFor: 'last_name', className: 'col-md-4 control-label' },
+						'Last Name'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-md-6' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'last_name', type: 'text', className: 'form-control', ref: 'last_name', name: 'last_name', onChange: this.onChange.bind(this), required: true, autofocus: true })
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'form-group' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'label',
+						{ htmlFor: 'email', className: 'col-md-4 control-label' },
 						'E-Mail Address'
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -62411,27 +62432,13 @@ var DNLRegister = function (_Component) {
 					{ className: 'form-group' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'label',
-						{ 'for': 'password', className: 'col-md-4 control-label' },
+						{ htmlFor: 'password', className: 'col-md-4 control-label' },
 						'Password'
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
 						{ className: 'col-md-6' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password', type: 'password', className: 'form-control', ref: 'password', name: 'password', onChange: this.onChange.bind(this), required: true })
-					)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'form-group' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'label',
-						{ 'for': 'password-confirm', className: 'col-md-4 control-label' },
-						'Confirm Password'
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'col-md-6' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password-confirm', type: 'password', className: 'form-control', ref: 'confirm', name: 'password_confirmation', onChange: this.onChange.bind(this), required: true })
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

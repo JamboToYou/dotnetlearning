@@ -6,31 +6,31 @@ class DNLRegister extends Component {
 	constructor(...args) {
 		super(...args);
 		this.state = {
-			name: '',
+			first_name: '',
+			last_name: '',
 			email: '',
 			password: '',
-			password_confirmation: '',
 		}
 	}
 
 	onSubmit(e) {
 		e.preventDefault();
-		const { name, email, password, password_confirmation } = this.state;
+		const { first_name, last_name, email, password } = this.state;
 		axios.post('api/register', {
-			name,
+			first_name,
+			last_name,
 			email,
 			password,
-			password_confirmation
 		})
 			.then(response => {
 				this.setState({ err: false });
-				this.props.history.push("home");
+				<Redirect to="/home" />;
 			})
 			.catch(error => {
-				this.refs.name.value = "";
+				this.refs.first_name.value = "";
+				this.refs.last_name.value = "";
 				this.refs.password.value = "";
 				this.refs.email.value = "";
-				this.refs.confirm.value = "";
 				this.setState({ err: true });
 			});
 	}
@@ -44,18 +44,29 @@ class DNLRegister extends Component {
 		if (this.state.err === false) {
 			return <Redirect to="/" />
 		}
+		if (this.state.err === true) {
+			return <p>Whoops!</p>
+		}
 		return (
 			<form className="form-horizontal" role="form" method="POST" onSubmit={this.onSubmit.bind(this)}>
 				<div className="form-group">
-					<label for="name" className="col-md-4 control-label">Name</label>
+					<label htmlFor="first_name" className="col-md-4 control-label">First Name</label>
 
 					<div className="col-md-6">
-						<input id="name" type="text" className="form-control" ref="name" name="name" onChange={this.onChange.bind(this)} required autofocus />
+						<input id="first_name" type="text" className="form-control" ref="first_name" name="first_name" onChange={this.onChange.bind(this)} required autofocus />
 					</div>
 				</div>
 
 				<div className="form-group">
-					<label for="email" className="col-md-4 control-label">E-Mail Address</label>
+					<label htmlFor="last_name" className="col-md-4 control-label">Last Name</label>
+
+					<div className="col-md-6">
+						<input id="last_name" type="text" className="form-control" ref="last_name" name="last_name" onChange={this.onChange.bind(this)} required autofocus />
+					</div>
+				</div>
+
+				<div className="form-group">
+					<label htmlFor="email" className="col-md-4 control-label">E-Mail Address</label>
 
 					<div className="col-md-6">
 						<input id="email" type="email" className="form-control" ref="email" name="email" onChange={this.onChange.bind(this)} required />
@@ -63,18 +74,10 @@ class DNLRegister extends Component {
 				</div>
 
 				<div className="form-group">
-					<label for="password" className="col-md-4 control-label">Password</label>
+					<label htmlFor="password" className="col-md-4 control-label">Password</label>
 
 					<div className="col-md-6">
 						<input id="password" type="password" className="form-control" ref="password" name="password" onChange={this.onChange.bind(this)} required />
-					</div>
-				</div>
-
-				<div className="form-group">
-					<label for="password-confirm" className="col-md-4 control-label">Confirm Password</label>
-
-					<div className="col-md-6">
-						<input id="password-confirm" type="password" className="form-control" ref="confirm" name="password_confirmation" onChange={this.onChange.bind(this)} required />
 					</div>
 				</div>
 

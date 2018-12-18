@@ -15,10 +15,10 @@ use Illuminate\Http\Request;
 
 Route::get('/user', 'UsersController@getUser');
 
-Route::group(["middleware" => ["web"]], function() {
-	Route::post('/register', 'Auth\RegisterController@create');
-	Route::post('/login', 'Auth\LoginController@login');
-});
+
+Route::post('/register', 'RegisterController@create');
+Route::post('/login', 'Auth\LoginController@login');
+
 
 Route::group(['prefix' => 'course'], function () {
 	Route::get('/get/{id}', 'CoursesController@getCourse');
