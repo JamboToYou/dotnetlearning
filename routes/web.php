@@ -11,18 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Auth::routes();
+Route::get('/{path?}', [
+	'uses' => 'ReactController@show',
+	'as' => 'react',
+	'where' => ['path' => '.*']
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');

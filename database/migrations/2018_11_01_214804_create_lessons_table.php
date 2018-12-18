@@ -17,6 +17,7 @@ class CreateLessonsTable extends Migration
 			$table->increments('id');
 			$table->unsignedInteger('chapter_id');
 			$table->unsignedInteger('test_id');
+			$table->unsignedInteger('order_value');
 			$table->string('title');
 			$table->text('lesson_body');
 			$table->timestamps();

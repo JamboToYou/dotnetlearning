@@ -9,11 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
-    public function getUser()
+	public function getUser()
 	{
-		return fractal()
-			->item(Auth::user())
-			->transform(new UserTrandformer)
-			->toArray();
+		$user = Auth::user();
+		if ($user != null)
+		{
+			return fractal()
+				->item(Auth::user(), new UserTransformer)
+				->toJson();
+		}
+		else
+		{
+			return fractal()
+				->item(User::find(1), new UserTransformer)
+				->toJson();
+		}
 	}
 }

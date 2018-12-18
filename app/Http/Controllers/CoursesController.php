@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Chapter;
+use App\Lesson;
+use App\Http\Transformers\CourseTransformer;
+use App\Http\Transformers\ShortCourseTransformer;
 
 class CoursesController extends Controller
 {
-	public function getAll()
+	public function getAllShort()
 	{
 		$courses = Course::all();
 
+		foreach($courses as $course)
+		{
+			$course->chapters = Chapter::where('course_id', $course->id)->get();
+		}
+
 		return fractal()
-			->collection($courses)
+			->collection($courses, new ShortCourseTransformer)
 			->toJson();
 	}
 
@@ -34,5 +43,28 @@ class CoursesController extends Controller
 		Course::add($course);
 
 		return Course::getLast();
+	}
+
+	public function getCourse(int $id)
+	{
+		$course = Course::find($id);
+		$course->chapters = Chapter::where('course_id', $id)->get();
+
+		return fractal()
+			->item($course, new CourseTransformer)
+			->toJson();
+	}
+
+	public function getFullCourse(int $id)
+	{
+		$course = Course::find($id);
+		$course->chapters = Chapters::where('course_id', $id)->get();
+		foreach ($chapter->courses as $chapter) {
+			$chapter->lessons = Lesson::where('chapter_id', $chapter->id)->get();
+		}
+
+		return fractal()
+			->item($course, new FullCourseTransformer)
+			->toJson();
 	}
 }

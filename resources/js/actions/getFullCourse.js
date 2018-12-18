@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const getCourses = (func) => {
-	axios('/api/course/all')
+const getFullCourse = (courseId, func) => {
+	axios("/api/course/getFull/" + courseId)
 		.then(data => {
 			func(data.data.data);
 		})
@@ -10,4 +10,4 @@ const getCourses = (func) => {
 		})
 }
 
-export default getCourses;
+export default getFullCourse;

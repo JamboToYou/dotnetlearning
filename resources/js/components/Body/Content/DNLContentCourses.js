@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import DNLContentCourse from './DNLContentCourse';
-import getCourses from '../../../actions/getCourses';
+import getShortCourses from '../../../actions/getShortCourses';
 
 class DNLContentCourses extends Component {
-	
-	constructor (...args) {
+
+	constructor(...args) {
 		super(...args);
 
 		this.state = {
@@ -12,16 +12,27 @@ class DNLContentCourses extends Component {
 		};
 	}
 
-	async componentDidMount() {
-		this.setState({ courses: await getCourses() })
+	componentDidMount() {
+		getShortCourses(data =>
+			{
+				this.setState({ courses: data });
+			});
 	}
 
 	render() {
-		return (
-			<div>
-				{this.state.map(course => <DNLContentCourse course />)}
-			</div>
-		)
+		if (this.state.courses === null) {
+			return <p>There is no courses</p>
+		}
+		else if (this.state.courses === "error")
+			return <p>AnErrorOccuredWhileLoadingCourses</p>
+		else
+		{
+			return (
+				<div>
+					{this.state.courses.map(course => <DNLContentCourse key={course.Id} course={course}/>)}
+				</div>
+			)
+		}
 	}
 }
 

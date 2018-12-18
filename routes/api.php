@@ -13,16 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', 'UsersController@getUser');
+Route::get('/user', 'UsersController@getUser');
 
-Route::post('/register', 'Auth\RegisterController@create');
-Route::post('/login', 'Auth\LoginController@login');
+Route::group(["middleware" => ["web"]], function() {
+	Route::post('/register', 'Auth\RegisterController@create');
+	Route::post('/login', 'Auth\LoginController@login');
+});
 
 Route::group(['prefix' => 'course'], function () {
-	Route::get('/all', 'CoursesController@getAll');
-	Route::get('/{id}', 'CoursesController@getCourse');
-	Route::group(['middleware' => ['auth:api']], function () {
-		Route::post('/', 'CoursesController@addCourse');
-		Route::patch('/{id}', 'CoursesController@updateCourse');
-	});
+	Route::get('/get/{id}', 'CoursesController@getCourse');
+	Route::get('/allShort', 'CoursesController@getAllShort');
+	Route::post('/', 'CoursesController@addCourse');
+	Route::patch('/{id}', 'CoursesController@updateCourse');
 });
