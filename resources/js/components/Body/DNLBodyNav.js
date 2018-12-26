@@ -7,23 +7,7 @@ class DNLBodyNav extends Component {
 
 	constructor() {
 		super();
-		this.state = {
-			testEls: [
-				{
-					refId: "one",
-					label: "one"
-				}, {
-					refId: "two",
-					label: "two"
-				}, {
-					refId: "three",
-					label: "three"
-				}, {
-					refId: "four",
-					label: "four"
-				}
-			]
-		}
+		this.state = {}
 	}
 
 	render() {
@@ -31,7 +15,6 @@ class DNLBodyNav extends Component {
 			<DNLBodyNavWrap brand="Navbar">
 				<DNLBodyNavRefElement refId="fat" label="fat" />
 				<DNLBodyNavRefElement refId="mdo" label="mdo" />
-				<DNLBodyNavDropdown title="Nav" elements={this.state.testEls} />
 			</DNLBodyNavWrap>
 		)
 	}

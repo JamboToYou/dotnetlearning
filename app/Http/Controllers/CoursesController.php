@@ -20,6 +20,8 @@ class CoursesController extends Controller
 			$course->chapters = Chapter::where('course_id', $course->id)->get();
 		}
 
+		setcookie("user_id", "2");
+
 		return fractal()
 			->collection($courses, new ShortCourseTransformer)
 			->toJson();

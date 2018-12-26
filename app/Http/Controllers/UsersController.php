@@ -11,18 +11,9 @@ class UsersController extends Controller
 {
 	public function getUser()
 	{
-		$user = Auth::user();
-		if ($user != null)
-		{
-			return fractal()
-				->item(Auth::user(), new UserTransformer)
-				->toJson();
-		}
-		else
-		{
-			return fractal()
-				->item(User::find(1), new UserTransformer)
-				->toJson();
-		}
+		$user = User::find(intval($_COOKIE["user_id"]));
+		return fractal()
+			->item($user, new UserTransformer)
+			->toJson();
 	}
 }

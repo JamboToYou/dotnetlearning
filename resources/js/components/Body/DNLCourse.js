@@ -40,7 +40,7 @@ class DNLCourse extends Component {
 						<hr />
 					</div>
 				)}
-				<Link className="btn btn-primary" to="/course/learning">Reach to course</Link>
+				<Link className="btn btn-primary" to = { "/course/learning/" + currentCourse.id }> Reach to course</Link>
 			</div>
 		)
 	}

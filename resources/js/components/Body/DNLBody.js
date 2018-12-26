@@ -1,9 +1,7 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import getShortCourses from '../../actions/getShortCourses';
 import DNLBodyNav from './DNLBodyNav';
 import DNLContentCourses from './Content/DNLContentCourses';
-
-import getUser from '../../actions/getUser';
 
 class DNLBody extends React.Component {
 
@@ -11,20 +9,26 @@ class DNLBody extends React.Component {
 		super(...args);
 
 		this.state = {
-			user: {}
+			user: {},
+			courses: []
 		}
 	}
 
-	componentWillMount() {
-		this.setState({ user: getUser() });
-		console.log(this.state);
+	componentDidMount() {
+		getShortCourses(data =>
+			{
+				this.setState({ courses: data });
+			});
+		if (this.props.location.state.user !== {}) {
+			this.setState({ user: this.props.location.state.user });
+		}
 	}
 
 	render() {
 		return (
 			<div className="col content">
 				<DNLBodyNav />
-				<DNLContentCourses />
+				<DNLContentCourses courses={this.state.courses}/>
 			</div>
 		)
 	}

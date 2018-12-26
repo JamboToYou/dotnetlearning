@@ -17,7 +17,8 @@ Route::get('/user', 'UsersController@getUser');
 
 
 Route::post('/register', 'RegisterController@create');
-Route::post('/login', 'Auth\LoginController@login');
+// Route::post('/register', function(Request $request){ return $request; });
+Route::post('/login', 'LoginController@login');
 
 
 Route::group(['prefix' => 'course'], function () {

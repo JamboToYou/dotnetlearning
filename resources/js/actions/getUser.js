@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-const getUser = () =>
-	axios({method: "GET", url: "/api/user", headers: { "Accept": "application/json", "Contetnt-Type": "application/json" }});
+const getUser = (func) => {
+	axios("/api/user")
+		.then(data => {
+			func(data.data.data);
+		})
+		.catch(error => {
+			func("error");
+		});
+}
 
 export default getUser;

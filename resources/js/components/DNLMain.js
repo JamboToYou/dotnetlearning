@@ -9,23 +9,33 @@ import DNLLogin from './Auth/DNLLogin';
 import DNLCourse from './Body/DNLCourse';
 import DNLCourseLearning from './Body/DNLCourseLearning';
 import DNLRegister from './Auth/DNLRegister';
+import getUser from '../actions/getUser';
 
 export default class DNLMain extends Component {
+
+	constructor(...args) {
+		super(...args);
+		this.state = {
+			courses: [],
+			user: {}
+		};
+		console.log(this.props);
+	}
+
+	componentDidMount () {
+		getUser(data => {
+			this.setState({user: data});
+		})
+	}
+
 	render() {
 		return (
 			<div className="container-fluid p-0 pt-2">
 				<DNLNavbar />
 				<div className="row justify-content-center position-relative">
-					<Route path="/" render={() => <Link to="/home">Test</Link>} />
-					<Switch>
-						<Route path="/home" exact strict render={() =>
-							<div>
-								<DNLSidebar />
-								<DNLBody />
-							</div>
-						} />
-					</Switch>
-					<Route path="/login" component={DNLLogin} />
+					<DNLSidebar />
+					<Route path="/" exact component={DNLBody} />
+					<Route path="/login" render={(props) => <DNLLogin {...props} updateParent={this.setState} />} />
 					<Route path="/register" component={DNLRegister} />
 					<Route path="/course/:courseId" component={DNLCourse} />
 					<Route path="/course/learning/:courseId" component={DNLCourseLearning} />
