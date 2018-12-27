@@ -39,12 +39,14 @@
 	overflow: scroll;
 }
 
-.dnl-card {
+.dnl-card, .dnl-card-back {
 	transition: 0.2s all;
-	list-style: none;
+    list-style: none;
+    width: 100%;
+    backface-visibility: hidden;
 }
 
-.dnl-card:hover {
+.dnl-card:hover, .dnl-card-back:hover {
 	background-color: rgb(235, 235, 235);
 }
 
@@ -68,5 +70,26 @@ a.list-group-item-active {
 /*----*/
 
 .dnl-user-avatar {
-	font-size: 5em;
+    border: 4px solid blue;
+    text-align: center;
+    vertical-align: middle;
+    width: 5em;
+    height: 5em;
+}
+
+.dnl-user-avatar-in {
+    font-size: 4em;
+}
+
+.dnl-card-back {
+    transform: rotateY(180deg);
+}
+
+.dnl-card-scene {
+    transition: transform 1s;
+    transform-style: preserve-3d;  
+}
+
+.dnl-card-scene.is-flipped {
+    transform: rotateY(180deg);
 }
