@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Course;
 use App\Chapter;
 use App\Lesson;
+use App\User;
 use App\Http\Transformers\CourseTransformer;
 use App\Http\Transformers\ShortCourseTransformer;
 
@@ -17,10 +18,8 @@ class CoursesController extends Controller
 
 		foreach($courses as $course)
 		{
-			$course->chapters = Chapter::where('course_id', $course->id)->get();
+			$course->author = User::find($course->author_id);
 		}
-
-		setcookie("user_id", "2");
 
 		return fractal()
 			->collection($courses, new ShortCourseTransformer)

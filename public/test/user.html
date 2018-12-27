@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<title>DotNetLearning</title>
+</head>
+
+<body>
+	<div class="container-fluid p-0 pt-2">
+		<nav class="row navbar navbar-expand-md navbar-light bg-light dnl-navbar">
+			<div class="col-1 col-md-4 col-lg-5">
+				<button class="btn btn-light m-auto" type="button" data-toggle="collapse" data-target="#dnl-side_navigation"
+				 aria-controls="dnl-side_navigation" aria-expanded="false" aria-label="Toggle navigation">
+					<h5>Navigation</h5>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<a href="index1.html" class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-8 navbar-brand btn btn-outline-primary text-primary"
+			 id="dnl-navbar-icon">
+				<b class="display-4 text-dark">.NET</b> Learning
+			</a>
+		</nav>
+		<div class="row justify-content-center position-relative">
+			<div class="col-12 col-md-3 col-lg-2 collapse" id="dnl-side_navigation">
+				<ul class="m-2 btn-group-vertical p-0 w-100">
+					<a href="login.html" class="btn btn-light m-1 w-100">First</a>
+					<a href="register.html" class="btn btn-light m-1 w-100">Second</a>
+					<button class="btn btn-light m-1 w-100" type="button" data-toggle="collapse" data-target="#multiCollapseExample2"
+					 aria-expanded="false" aria-controls="multiCollapseExample2">
+						Toggle
+					</button>
+					<ul class="collapse navbar-collapse p-0 m-2 w-100" id="multiCollapseExample2">
+						<button class="btn btn-light m-1 w-100 m-1">Second</button>
+						<button class="btn btn-light m-1 w-100 m-1">Second</button>
+						<button class="btn btn-light m-1 w-100 m-1">Second</button>
+					</ul>
+					<button class="btn btn-light m-1 w-100">Third</button>
+					<button class="btn btn-light m-1 w-100">Fourth</button>
+					<button class="btn btn-light m-1 w-100">Fifth</button>
+				</ul>
+			</div>
+			<div class="col content">
+				<nav id="navbar-example2" class="navbar navbar-light bg-light top">
+					<a class="navbar-brand" href="#">Navbar</a>
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="nav-link" href="#course1">@course1</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#course2">@course2</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+							 aria-expanded="false">Dropdown</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#course3">@course3</a>
+								<a class="dropdown-item" href="#two">two</a>
+								<div role="separator" class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#three">three</a>
+								<a class="dropdown-item" href="#four">four</a>
+								<a class="dropdown-item" href="#five">five</a>
+								<a class="dropdown-item" href="#six">six</a>
+								<a class="dropdown-item" href="#seven">seven</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+				<div class="dnl-container-main row justify-content-center" data-spy="scroll" data-target="#navbar-example2"
+				 data-offset="0">
+					<div class="card col-7">
+						<div class="card-header row justify-content-around">
+							<div class="col-5">
+							<h1>name</h1>
+							<h5>email@email.com</h5>
+							</div>
+							<!-- <img class="offset-4 dnl-user-avatar" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" /> -->
+							<div class="badge badge-primary badge-pill rounded-circle"><i class="fa fa-user dnl-user-avatar"></i></div>
+						</div>
+						<div class="card-body">
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore esse possimus at explicabo accusamus quam beatae minima, saepe pariatur, sint ratione molestias aliquid! Temporibus minima, et quibusdam sint adipisci laudantium tempore quod aspernatur perspiciatis corrupti quae id laborum aut necessitatibus deleniti eligendi consectetur fugiat quam repellat nulla iste dolorem suscipit praesentium culpa? Explicabo enim reiciendis molestias assumenda ea rem eius? Optio alias ipsa reiciendis corporis odit accusamus enim exercitationem ad quisquam unde neque dolorum at doloremque sit id ab animi consequuntur, nobis porro qui tempore, ullam rem saepe. Doloribus, earum excepturi. Incidunt qui excepturi nesciunt tempora nihil distinctio dignissimos iusto praesentium aspernatur est. Quae velit amet sunt, dicta placeat nihil cupiditate excepturi aperiam, officia optio hic, cum facere quaerat in nam iure accusantium fugiat illum necessitatibus. Aspernatur reiciendis, id magnam at natus illum, nulla molestias tempore saepe officiis ab officia cumque sed eos voluptates porro, ad quisquam odit dolorem. Consectetur.</p>
+						</div>
+						<div class="card-footer row">
+							<h5 class="col-4">Courses created: 10</h5>
+							<h5 class="col-4 offset-4">Courses completed: 20</h5>
+							<button type="button" class="btn btn-outline-primary offset-11"><i class="fa fa-angle-double-down"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
+</body>
+
+</html>

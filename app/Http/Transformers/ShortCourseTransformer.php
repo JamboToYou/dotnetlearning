@@ -12,17 +12,10 @@ class ShortCourseTransformer extends \League\Fractal\TransformerAbstract
 			'id' => $course->id,
 			'title' => $course->title,
 			'description' => $course->description,
-			'chapters' => [],
+			'author' => $course->author,
+			'author_id' => $course->author_id,
 			'created_at' => $course->created_at
 		];
-
-		foreach ($course->chapters as $chapter) {
-			array_push($result['chapters'], [
-				'id' => $chapter->id,
-				'order_value' => $chapter->order_value,
-				'title' => $chapter->title,
-			]);
-		}
 
 		return $result;
 	}

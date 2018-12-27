@@ -1,4 +1,4 @@
-.dhl-container-main {
+.dnl-container-main {
     overflow-y: scroll;
     position: relative;
     padding: 20px;
@@ -11,7 +11,7 @@
     font-weight: 600;
 }
 
-#dhl-navbar-icon b {
+#dnl-navbar-icon b {
     font-weight: 900;
 }
 
@@ -39,16 +39,16 @@
 	overflow: scroll;
 }
 
-.dhl-card {
+.dnl-card {
 	transition: 0.2s all;
 	list-style: none;
 }
 
-.dhl-card:hover {
+.dnl-card:hover {
 	background-color: rgb(235, 235, 235);
 }
 
-.dhl-card_img {
+.dnl-card_img {
 	width: 100px;
 	border-radius: 50%;
 }
@@ -57,7 +57,7 @@
     position: relative;
 }
 
-.dhl-course_full_img {
+.dnl-course_full_img {
 	height: 100%;
 	border-radius: 50%;
 }
@@ -67,11 +67,6 @@ a.list-group-item-active {
 }
 /*----*/
 
-.card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
-  }
+.dnl-user-avatar {
+	font-size: 5em;
 }
