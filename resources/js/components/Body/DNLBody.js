@@ -15,12 +15,13 @@ class DNLBody extends React.Component {
 	}
 
 	componentDidMount() {
-		getShortCourses(data =>
-			{
-				this.setState({ courses: data });
-			});
-		if (this.props.location.state.user !== {}) {
-			this.setState({ user: this.props.location.state.user });
+		getShortCourses(data => {
+			this.setState({ courses: data });
+		});
+		if (this.props.location.state != null) {
+			if (this.props.location.state.user !== {}) {
+				this.setState({ user: this.props.location.state.user });
+			}
 		}
 	}
 
@@ -28,7 +29,7 @@ class DNLBody extends React.Component {
 		return (
 			<div className="col content">
 				<DNLBodyNav />
-				<DNLContentCourses courses={this.state.courses}/>
+				<DNLContentCourses courses={this.state.courses} />
 			</div>
 		)
 	}

@@ -17,7 +17,7 @@ class DNLContentCourses extends Component {
 		else
 		{
 			return (
-				<div className="dhl-container-main row">
+				<div className="dhl-container-main row" data-spy="scroll" data-offset="0">
 					{this.props.courses.map(course => <DNLContentCourse key={course.Id} course={course}/>)}
 				</div>
 			)

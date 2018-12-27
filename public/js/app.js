@@ -57556,8 +57556,10 @@ var DNLBody = function (_React$Component) {
 			Object(__WEBPACK_IMPORTED_MODULE_1__actions_getShortCourses__["a" /* default */])(function (data) {
 				_this2.setState({ courses: data });
 			});
-			if (this.props.location.state.user !== {}) {
-				this.setState({ user: this.props.location.state.user });
+			if (this.props.location.state != null) {
+				if (this.props.location.state.user !== {}) {
+					this.setState({ user: this.props.location.state.user });
+				}
 			}
 		}
 	}, {
@@ -57804,7 +57806,7 @@ var DNLContentCourses = function (_Component) {
 			);else {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					null,
+					{ className: 'dhl-container-main row', 'data-spy': 'scroll', 'data-offset': '0' },
 					this.props.courses.map(function (course) {
 						return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__DNLContentCourse__["a" /* default */], { key: course.Id, course: course });
 					})
@@ -57829,69 +57831,43 @@ var DNLContentCourses = function (_Component) {
 
 
 
-var DNLContentCoursesChapter = function DNLContentCoursesChapter(_ref) {
-	var title = _ref.title;
-	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		'li',
-		{ className: 'list-group-item list-group-item-active' },
-		title
-	);
-};
+var DNLContentCourse = function DNLContentCourse(_ref) {
+	var course = _ref.course;
 
-var DNLContentCoursesArticle = function DNLContentCoursesArticle(_ref2) {
-	var course = _ref2.course,
-	    key = _ref2.key;
+	var desc = course.description.length > 20 ? course.description.substring(0, 20) + '...' : course.description;
 	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 		'div',
-		{ className: 'card-header pb-5', 'data-toggle': 'collapse', 'data-target': "#" + "crs_ch_" + course.id, 'aria-controls': "crs_ch_" + course.id, 'aria-expanded': 'false' },
+		{ id: course.id, className: 'col-6 col-md-4 col-lg-3' },
 		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
-			{ className: 'card-header-pills align-items-center' },
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: course.imgUrl, alt: 'image', className: 'img-thumbnail position-relative d-flex dhl-card_img float-left m-5' })
-		),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			'div',
-			{ className: 'card-title' },
+			{ className: 'card dnl-card m-2' },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-				{ to: "/course/" + course.id, className: 'btn btn-light justify-content-center' },
+				'div',
+				{ className: 'card-header' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'h2',
-					{ className: 'align-middle' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'strong',
-						null,
-						course.title
-					)
+					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+					{ to: "/course/" + course.id, className: 'btn btn-link' },
+					course.title
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'card-body' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					null,
+					desc
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				null,
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+					{ to: "/user/" + course.author_id, className: 'btn btn-sm btn-primary rounded-top' },
+					course.author
 				)
 			)
-		),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			'p',
-			{ className: 'card-text pb-3' },
-			course.description,
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'button',
-				{ className: 'm-1 btn btn-outline-primary float-right' },
-				'Enter in course'
-			)
-		)
-	);
-};
-
-var DNLContentCourse = function DNLContentCourse(_ref3) {
-	var course = _ref3.course;
-
-	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		'li',
-		{ id: course.id, className: 'dhl-card' },
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(DNLContentCoursesArticle, { course: course }),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			'ul',
-			{ className: 'collapse list-group', id: "crs_ch_" + course.id },
-			course.chapters.map(function (ch) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(DNLContentCoursesChapter, { key: ch.id, title: ch.title });
-			})
 		)
 	);
 };
