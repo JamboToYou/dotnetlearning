@@ -24,6 +24,8 @@ Route::post('/login', 'LoginController@login');
 Route::group(['prefix' => 'course'], function () {
 	Route::get('/get/{id}', 'CoursesController@getCourse');
 	Route::get('/allShort', 'CoursesController@getAllShort');
+	Route::get('/full/{id}', 'CoursesController@getFullCourse');
+	Route::post('/courseToLearn', 'CoursesController@getCourseToLearn');
 	Route::post('/', 'CoursesController@addCourse');
 	Route::patch('/{id}', 'CoursesController@updateCourse');
 });

@@ -28,7 +28,7 @@ class DNLCourse extends Component {
 			return <p>Course with ID: {this.props.match.courseId} doesn't exist</p>
 		}
 		return (
-			<div>
+			<div className="container">
 				<h1>Title: {currentCourse.title}</h1>
 				<h2>ID: {currentCourse.id}</h2>
 				<h3>Description: {currentCourse.description}</h3>

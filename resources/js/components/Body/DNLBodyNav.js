@@ -5,16 +5,14 @@ import DNLBodyNavDropdown from './DNLBodyNavDropdown';
 
 class DNLBodyNav extends Component {
 
-	constructor() {
-		super();
-		this.state = {}
+	constructor(...args) {
+		super(...args);
 	}
 
 	render() {
-		return (
+		return this.props.refs != null && (
 			<DNLBodyNavWrap brand="Navbar">
-				<DNLBodyNavRefElement refId="fat" label="fat" />
-				<DNLBodyNavRefElement refId="mdo" label="mdo" />
+				{this.props.refs.map(ref => <DNLBodyNavRefElement refId={ref.refId} label={ref.label} />)}
 			</DNLBodyNavWrap>
 		)
 	}

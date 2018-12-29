@@ -17,7 +17,7 @@ class DNLCourseLearning extends Component {
 			this.setState({
 				course: data,
 				currentLesson: course.chapters.find(chapter =>
-					chapter.status === "p").lessons.find(lesson =>
+					chapter.lessons.find(lesson => lesson.status === "p") !== null).lessons.find(lesson =>
 						lesson.status === "p").id
 			})
 		})

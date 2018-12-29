@@ -1,11 +1,7 @@
 import React from 'react'
 
 const DNLBodyNavRefElement = ({ refId, label }) => {
-	return (
-		<li className="nav-item">
-			<a className="nav-link" href={"#" + refId}>{label}</a>
-		</li>
-	)
+	return <a className="dropdown-item" href={"#" + refId}>{label}</a>
 }
 
 export default DNLBodyNavRefElement;

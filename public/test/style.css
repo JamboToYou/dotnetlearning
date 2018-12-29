@@ -67,7 +67,6 @@
 a.list-group-item-active {
 	text-decoration: none;
 }
-/*----*/
 
 .dnl-user-avatar {
     border: 4px solid blue;
@@ -92,4 +91,8 @@ a.list-group-item-active {
 
 .dnl-card-scene.is-flipped {
     transform: rotateY(180deg);
+}
+
+.dnl-lrn {
+	height: 1vh;
 }

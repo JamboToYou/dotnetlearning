@@ -7,8 +7,13 @@ use App\Course;
 use App\Chapter;
 use App\Lesson;
 use App\User;
+use App\Test;
+use App\TestKey;
+use App\UserProgress;
 use App\Http\Transformers\CourseTransformer;
 use App\Http\Transformers\ShortCourseTransformer;
+use App\Http\Transformers\FullCourseTransformer;
+use App\Http\Transformers\LearnCourseTransformer;
 
 class CoursesController extends Controller
 {
@@ -59,13 +64,37 @@ class CoursesController extends Controller
 	public function getFullCourse(int $id)
 	{
 		$course = Course::find($id);
-		$course->chapters = Chapters::where('course_id', $id)->get();
-		foreach ($chapter->courses as $chapter) {
+		$course->chapters = Chapter::where('course_id', $id)->get();
+		foreach ($course->chapters as $chapter) {
 			$chapter->lessons = Lesson::where('chapter_id', $chapter->id)->get();
 		}
 
 		return fractal()
 			->item($course, new FullCourseTransformer)
+			->toJson();
+	}
+
+	public function getCourseToLearn(Request $request)
+	{
+		$course = Course::find($request->course_id);
+		$chapters = Chapter::where('course_id', $course->id)->get();
+
+		foreach ($chapters as $chapter) {
+			$chapter->lessons = Lesson::where('chapter_id', $chapter->id);
+			$chapter->test = Test::find($chapter->test_id);
+
+			$chapter->test->keys = TestKey::where('test_id', $chapter->test_id);
+		}
+
+		$course->chapters = $chapters;
+
+		$course->user_progress = UserProgress::
+			where('user_id', $request->user_id)
+			->where('course_id', $request->course_id)
+			->where('status', 'p')->first();
+
+		return fractal()
+			->item($course, new LearnCourseTransformer)
 			->toJson();
 	}
 }

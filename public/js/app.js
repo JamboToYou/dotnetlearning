@@ -57567,8 +57567,10 @@ var DNLBody = function (_React$Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'col content' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DNLBodyNav__["a" /* default */], null),
+				{ className: 'container-fluid content' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DNLBodyNav__["a" /* default */], { refs: this.state.courses.map(function (course) {
+						return { refId: course.id, label: course.title };
+					}) }),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Content_DNLContentCourses__["a" /* default */], { courses: this.state.courses })
 			);
 		}
@@ -57606,22 +57608,26 @@ var DNLBodyNav = function (_Component) {
 	_inherits(DNLBodyNav, _Component);
 
 	function DNLBodyNav() {
+		var _ref;
+
 		_classCallCheck(this, DNLBodyNav);
 
-		var _this = _possibleConstructorReturn(this, (DNLBodyNav.__proto__ || Object.getPrototypeOf(DNLBodyNav)).call(this));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
 
-		_this.state = {};
-		return _this;
+		return _possibleConstructorReturn(this, (_ref = DNLBodyNav.__proto__ || Object.getPrototypeOf(DNLBodyNav)).call.apply(_ref, [this].concat(args)));
 	}
 
 	_createClass(DNLBodyNav, [{
 		key: 'render',
 		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return this.props.refs != null && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_1__DNLBodyNavWrap__["a" /* default */],
 				{ brand: 'Navbar' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DNLBodyNavRefElement__["a" /* default */], { refId: 'fat', label: 'fat' }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DNLBodyNavRefElement__["a" /* default */], { refId: 'mdo', label: 'mdo' })
+				this.props.refs.map(function (ref) {
+					return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DNLBodyNavRefElement__["a" /* default */], { refId: ref.refId, label: ref.label });
+				})
 			);
 		}
 	}]);
@@ -57662,7 +57668,7 @@ var DNLBodyNavWrap = function (_Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"nav",
-				{ id: "navbar-example2", className: "navbar navbar-light bg-light top" },
+				{ id: "dnl-body-nav", className: "navbar navbar-light bg-light top" },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					"a",
 					{ className: "navbar-brand", href: "#" },
@@ -57671,7 +57677,21 @@ var DNLBodyNavWrap = function (_Component) {
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					"ul",
 					{ className: "nav nav-pills" },
-					this.props.children
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"li",
+						{ className: "nav-item dropdown" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"a",
+							{ className: "nav-link dropdown-toggle", "data-toggle": "dropdown", href: "#", role: "button", "aria-haspopup": "true",
+								"aria-expanded": "false" },
+							"Dropdown"
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ "class": "dropdown-menu" },
+							this.props.children
+						)
+					)
 				)
 			);
 		}
@@ -57696,13 +57716,9 @@ var DNLBodyNavRefElement = function DNLBodyNavRefElement(_ref) {
 	    label = _ref.label;
 
 	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		"li",
-		{ className: "nav-item" },
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			"a",
-			{ className: "nav-link", href: "#" + refId },
-			label
-		)
+		"a",
+		{ className: "dropdown-item", href: "#" + refId },
+		label
 	);
 };
 
@@ -57806,7 +57822,7 @@ var DNLContentCourses = function (_Component) {
 			);else {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					{ className: 'dhl-container-main row', 'data-spy': 'scroll', 'data-offset': '0' },
+					{ className: 'dhl-container-main row p-0', 'data-spy': 'scroll', 'data-offset': '0' },
 					this.props.courses.map(function (course) {
 						return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__DNLContentCourse__["a" /* default */], { key: course.Id, course: course });
 					})
@@ -57835,6 +57851,7 @@ var DNLContentCourse = function DNLContentCourse(_ref) {
 	var course = _ref.course;
 
 	var desc = course.description.length > 20 ? course.description.substring(0, 20) + '...' : course.description;
+	console.log(course);
 	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 		'div',
 		{ id: course.id, className: 'col-6 col-md-4 col-lg-3' },
@@ -57861,11 +57878,11 @@ var DNLContentCourse = function DNLContentCourse(_ref) {
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				null,
+				{ className: 'card-footer' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
 					{ to: "/user/" + course.author_id, className: 'btn btn-sm btn-primary rounded-top' },
-					course.author
+					course.author.first_name
 				)
 			)
 		)
@@ -58122,7 +58139,7 @@ var DNLCourse = function (_Component) {
 			}
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				null,
+				{ className: 'container' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'h1',
 					null,
