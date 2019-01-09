@@ -15,6 +15,9 @@ use App\Http\Transformers\ShortCourseTransformer;
 use App\Http\Transformers\FullCourseTransformer;
 use App\Http\Transformers\LearnCourseTransformer;
 
+use App\Utils\CoursesWorker;
+use Illuminate\Http\Response;
+
 class CoursesController extends Controller
 {
 	public function getAllShort()
@@ -26,9 +29,10 @@ class CoursesController extends Controller
 			$course->author = User::find($course->author_id);
 		}
 
-		return fractal()
+		return response(fractal()
 			->collection($courses, new ShortCourseTransformer)
-			->toJson();
+			->toJson())
+			->cookie('user_id', 'test', 3000);
 	}
 
 	public function updateCourse(Course $course, int $course_id)
@@ -41,14 +45,28 @@ class CoursesController extends Controller
 
 		$course_to_update->save();
 
-		return 'OK';
+		return fractal()
+			->item(Course::find($course_id), new FullCourseTransformer)
+			->toJson();
 	}
 
-	public function addCourse(Request $course)
+	public function addCourse(Request $request)
 	{
-		Course::add($course);
+			$course = new Course;
 
-		return Course::getLast();
+			$course->author_id = $request->author_id;
+			$course->title = $request->title;
+			$course->description = $request->description;
+
+			$course->save();
+
+			$course = Course::find(Course::max('id'));
+
+			$course->chapters = Chapter::where('course_id', $course->id)->get();
+
+			return fractal()
+				->item($course, new FullCourseTransformer)
+				->toJson();
 	}
 
 	public function getCourse(int $id)
@@ -63,11 +81,7 @@ class CoursesController extends Controller
 
 	public function getFullCourse(int $id)
 	{
-		$course = Course::find($id);
-		$course->chapters = Chapter::where('course_id', $id)->get();
-		foreach ($course->chapters as $chapter) {
-			$chapter->lessons = Lesson::where('chapter_id', $chapter->id)->get();
-		}
+		$course = CoursesWorker::getFullCourse($id);
 
 		return fractal()
 			->item($course, new FullCourseTransformer)
@@ -77,16 +91,18 @@ class CoursesController extends Controller
 	public function getCourseToLearn(Request $request)
 	{
 		$course = Course::find($request->course_id);
-		$chapters = Chapter::where('course_id', $course->id)->get();
+		$chapters = Chapter::where('course_id', $course->id)->get()->toArray();
 
+		$chapterss = array();
 		foreach ($chapters as $chapter) {
-			$chapter->lessons = Lesson::where('chapter_id', $chapter->id);
-			$chapter->test = Test::find($chapter->test_id);
+			$chapter['lessons'] = Lesson::where('chapter_id', $chapter['id'])->get()->toArray();
+			$chapter['test'] = Test::find($chapter['test_id'])->toArray();
 
-			$chapter->test->keys = TestKey::where('test_id', $chapter->test_id);
+			$chapter['test']['keys'] = TestKey::where('test_id', $chapter['test_id'])->get()->toArray();
+			array_push($chapterss, $chapter);
 		}
 
-		$course->chapters = $chapters;
+		$course->chapters = $chapterss;
 
 		$course->user_progress = UserProgress::
 			where('user_id', $request->user_id)
@@ -96,5 +112,14 @@ class CoursesController extends Controller
 		return fractal()
 			->item($course, new LearnCourseTransformer)
 			->toJson();
+	}
+
+	public function removeCourse(int $courseId) {
+		$chapters = Chapter::where('course_id', $courseId)->get();
+		foreach ($chapters as $chapter) {
+			Lesson::where('chapter_id', $chapter->id)->delete();
+		}
+		Chapter::where('course_id', $courseId)->delete();
+		return Course::destroy($courseId);
 	}
 }

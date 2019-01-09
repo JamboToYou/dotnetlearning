@@ -18,7 +18,7 @@ class DNLContentCourses extends Component {
 		{
 			return (
 				<div className="dhl-container-main row p-0" data-spy="scroll" data-offset="0">
-					{this.props.courses.map(course => <DNLContentCourse key={course.Id} course={course}/>)}
+					{this.props.courses.map(course => <DNLContentCourse key={course.id} course={course} currentUserId={this.props.currentUser.id} />)}
 				</div>
 			)
 		}

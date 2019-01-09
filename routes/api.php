@@ -13,7 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', 'UsersController@getUser');
+Route::group(['prefix' => 'user'], function(){
+	Route::get('/{id}', 'UsersController@getUser');
+	Route::get('/full/{id}', 'UsersController@getFullUser');
+});
+Route::redirect('/testimg', Gravatar::get('jamboto@example.com', ['size' => 100, 'fallback' => 'wavatar']), 301);
 
 
 Route::post('/register', 'RegisterController@create');
@@ -25,7 +29,18 @@ Route::group(['prefix' => 'course'], function () {
 	Route::get('/get/{id}', 'CoursesController@getCourse');
 	Route::get('/allShort', 'CoursesController@getAllShort');
 	Route::get('/full/{id}', 'CoursesController@getFullCourse');
+	Route::delete('/{id}', 'CoursesController@removeCourse');
 	Route::post('/courseToLearn', 'CoursesController@getCourseToLearn');
 	Route::post('/', 'CoursesController@addCourse');
 	Route::patch('/{id}', 'CoursesController@updateCourse');
+});
+
+Route::group(['prefix' => 'chapter'], function () {
+	Route::post('/', 'ChaptersController@addChapter');
+	Route::delete('/{id}', 'ChaptersController@removeChapter');
+});
+
+Route::group(['prefix' => 'lesson'], function () {
+	Route::post('/', 'LessonsController@addLesson');
+	Route::delete('/', 'LessonsController@removeLesson');
 });

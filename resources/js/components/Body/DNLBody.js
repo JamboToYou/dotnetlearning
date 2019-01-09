@@ -18,18 +18,13 @@ class DNLBody extends React.Component {
 		getShortCourses(data => {
 			this.setState({ courses: data });
 		});
-		if (this.props.location.state != null) {
-			if (this.props.location.state.user !== {}) {
-				this.setState({ user: this.props.location.state.user });
-			}
-		}
 	}
 
 	render() {
 		return (
 			<div className="container-fluid content">
-				<DNLBodyNav refs={this.state.courses.map(course => {return { refId: course.id, label: course.title }})} />
-				<DNLContentCourses courses={this.state.courses} />
+				<DNLBodyNav refs={this.state.courses.map(course => {return { refId: course.id, label: course.title }})} currentUser={this.props.currentUser} />
+				<DNLContentCourses courses={this.state.courses} currentUser={this.props.currentUser} />
 			</div>
 		)
 	}

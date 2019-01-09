@@ -17,14 +17,16 @@ class CourseTransformer extends \League\Fractal\TransformerAbstract
 			'created_at' => $course->created_at
 		];
 
-		foreach ($course->chapters as $chapter) {
-			array_push($result['chapters'], [
-				'id' => $chapter->id,
-				'order_value' => $chapter->order_value,
-				'test_id' => $chapter->test_id,
-				'title' => $chapter->title,
-				'description' => $chapter->description
-			]);
+		if ($course->chapters != null) {
+			foreach ($course->chapters as $chapter) {
+				array_push($result['chapters'], [
+					'id' => $chapter->id,
+					'order_value' => $chapter->order_value,
+					'test_id' => $chapter->test_id,
+					'title' => $chapter->title,
+					'description' => $chapter->description
+				]);
+			}
 		}
 
 		return $result;

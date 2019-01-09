@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import getFullUser from '../../../actions/getFullUser';
 import DNLContentCourses from '../Content/DNLContentCourses';
 
@@ -8,9 +9,9 @@ class DNLUser extends Component {
 		super(...args);
 
 		this.state = {
-			user: {},
-			createdCourses: [],
-			completedCourses: []
+			user: "empty",
+			createdCourses: "empty",
+			completedCourses: "empty"
 		}
 	}
 
@@ -20,20 +21,24 @@ class DNLUser extends Component {
 				user: data,
 				createdCourses: data.createdCourses,
 				completedCourses: data.completedCourses
-			})
-		})
+			});
+		});
 	}
 
 	render() {
-		return (
-			<div>
+		return (this.state.user !== "empty" && this.state.user !== "error") && (
+			<div className="row container-fluid dhl-container-main justify-content-center">
 				<div className="card col-10 col-lg-7">
-					<div className="card-header row justify-content-around">
+					<div className="card-header row justify-content-around pt-3">
 						<div className="col-5">
-							<h1>{this.state.user.first_name + " " + this.state.user.last_name}</h1>
-							<h5>{this.state.user.email}</h5>
+							<h1>Имя пользователя: {this.state.user.first_name + " " + this.state.user.last_name}</h1>
+							<h5>E-mail: {this.state.user.email}</h5>
+							<h5>Роль: {this.state.user.role}</h5>
+							<h5>ID: {this.state.user.id}</h5>
 						</div>
-						<img className="offset-4 rounded-circle" src={this.state.user.img} />
+						<div className="offset-4 flex-left col">
+							<img className="rounded-circle" src={this.state.user.avatar} />
+						</div>
 					</div>
 					<div className="card-body">
 						<p>{this.state.user.about}</p>
@@ -41,7 +46,6 @@ class DNLUser extends Component {
 					<div className="card-footer row">
 						<h5 className="col-4">Courses created: {this.state.createdCourses.length}</h5>
 						<h5 className="col-4 offset-4">Courses completed: {this.state.completedCourses.length}</h5>
-						<button type="button" className="btn btn-outline-primary offset-11"><i className="fa fa-angle-double-down"></i></button>
 					</div>
 				</div>
 				<div id="dnl-user-data-container" className="accordion col-10 col-lg-7  m-0 p-0">
@@ -56,7 +60,7 @@ class DNLUser extends Component {
 						</div>
 						<div id="createdCoursesData" className="collapse" aria-labelledby="createdCourses" data-parent="#dnl-user-data-container">
 							<div className="card-body">
-								<DNLContentCourses courses={this.state.createdCourses} />
+								<DNLContentCourses courses={this.state.createdCourses} currentUser={this.state.user}/>
 							</div>
 						</div>
 					</div>
@@ -71,7 +75,7 @@ class DNLUser extends Component {
 						</div>
 						<div id="completedCoursesData" className="collapse" aria-labelledby="completedCourses" data-parent="#dnl-user-data-container">
 							<div className="card-body">
-								<DNLContentCourses courses={this.state.completedCourses}/>
+								<DNLContentCourses courses={this.state.completedCourses} currentUser={this.state.user}/>
 							</div>
 						</div>
 					</div>

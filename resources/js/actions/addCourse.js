@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const getFullUser = (id, func) => {
-	axios("/api/user/full/" + id)
+const addCourse = (course, func) => {
+	axios.post("/api/course", course)
 		.then(data =>
 		{
+			console.log(data);
 			func(data.data.data);
 		})
 		.catch(error => {
@@ -11,4 +12,4 @@ const getFullUser = (id, func) => {
 		})
 }
 
-export default getFullUser;
+export default addCourse;

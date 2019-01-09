@@ -13,7 +13,6 @@
 .dhl-container-main {
     overflow-y: scroll;
     height: 80vh;
-    position: relative;
     padding: 20px;
 	padding-bottom: 20vh;
 }
@@ -48,7 +47,7 @@
 }
 
 .content {
-    height: 100vh;
+    
 }
 
 .dhl-card {
@@ -74,6 +73,10 @@
 .dhl-course_full_img {
 	height: 100%;
 	border-radius: 50%;
+}
+
+ul li {
+	list-style: none;
 }
 
 a.list-group-item-active {
@@ -107,4 +110,8 @@ a.list-group-item-active {
 
 .dnl-lrn {
 	height: 1vh;
+}
+
+.dnl-body-nav-dropdown-body {
+	overflow-y: scroll;
 }

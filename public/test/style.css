@@ -1,8 +1,8 @@
 .dnl-container-main {
     overflow-y: scroll;
-    position: relative;
     padding: 20px;
 	padding-bottom: 20vh;
+	height: 80vh;
 }
 
 #dnl-navbar-icon {
@@ -35,8 +35,7 @@
 }
 
 .content {
-    height: 100vh;
-	overflow: scroll;
+
 }
 
 .dnl-card, .dnl-card-back {
@@ -78,19 +77,6 @@ a.list-group-item-active {
 
 .dnl-user-avatar-in {
     font-size: 4em;
-}
-
-.dnl-card-back {
-    transform: rotateY(180deg);
-}
-
-.dnl-card-scene {
-    transition: transform 1s;
-    transform-style: preserve-3d;  
-}
-
-.dnl-card-scene.is-flipped {
-    transform: rotateY(180deg);
 }
 
 .dnl-lrn {

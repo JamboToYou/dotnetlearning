@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import DNLNavbar from './Navbar/DNLNavbar';
 import DNLSidebar from './Sidebar/DNLSidebar';
@@ -9,7 +9,8 @@ import DNLLogin from './Auth/DNLLogin';
 import DNLCourse from './Body/DNLCourse';
 import DNLCourseLearning from './Body/DNLCourseLearning';
 import DNLRegister from './Auth/DNLRegister';
-import getUser from '../actions/getUser';
+import DNLUser from './Body/User/DNLUser';
+import DNLCourseCreating from './Body/CourseCreating/DNLCourseCreating';
 
 export default class DNLMain extends Component {
 
@@ -17,28 +18,34 @@ export default class DNLMain extends Component {
 		super(...args);
 		this.state = {
 			courses: [],
-			user: {}
+			user: "empty"
 		};
-		console.log(this.props);
 	}
 
-	componentDidMount () {
-		getUser(data => {
-			this.setState({user: data});
-		})
+	updateState(data) {
+		this.setState({
+			user: data
+		});
+	}
+
+	logout() {
+		this.setState({
+			user: "empty"
+		});
 	}
 
 	render() {
 		return (
 			<div className="container-fluid p-0 pt-2">
-				<DNLNavbar />
+				<DNLNavbar user={this.state.user}  logout={this.logout.bind(this)} />
 				<div className="row justify-content-center position-relative">
-					<DNLSidebar />
-					<Route path="/" exact component={DNLBody} />
-					<Route path="/login" render={(props) => <DNLLogin {...props} updateParent={this.setState} />} />
+					<Route path="/" exact render={(props) => <DNLBody {...props} currentUser={this.state.user} />} />
+					<Route path="/login" render={(props) => <DNLLogin {...props} updateProfile={this.updateState.bind(this)} />} />
 					<Route path="/register" component={DNLRegister} />
-					<Route path="/course/:courseId" component={DNLCourse} />
+					<Route path="/course/create" exact strict render={(props) => <DNLCourseCreating {...props} currentUser={this.state.user} />} />
 					<Route path="/course/learning/:courseId" component={DNLCourseLearning} />
+					<Route path="/course::courseId" render={(props) => <DNLCourse {...props} currentUser={this.state.user} />} />
+					<Route path="/user/:userId" render={(props) => <DNLUser {...props} currentUser={this.state.user} />}/>
 				</div>
 			</div>
 		);

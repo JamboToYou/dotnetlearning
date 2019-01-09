@@ -12,7 +12,9 @@
 </head>
 
 <body>
+	<!--Main container-->
 	<div class="container-fluid p-0 pt-2">
+		<!--Navbar-->
 		<nav class="row navbar navbar-expand-md navbar-light bg-light dnl-navbar">
 			<div class="col-1 col-md-4 col-lg-5">
 				<button class="btn btn-light m-auto" type="button" data-toggle="collapse" data-target="#dnl-side_navigation"
@@ -26,6 +28,8 @@
 				<b class="display-4 text-dark">.NET</b> Learning
 			</a>
 		</nav>
+		<!--/Navbar-->
+		<!--Navbar toggle-->
 		<div class="col-12 col-md-3 col-lg-2 collapse" id="dnl-side_navigation">
 			<ul class="m-2 btn-group-vertical p-0 w-100">
 				<a href="login.html" class="btn btn-light m-1 w-100">First</a>
@@ -44,6 +48,7 @@
 				<button class="btn btn-light m-1 w-100">Fifth</button>
 			</ul>
 		</div>
+		<!--/Navbar toggle-->
 		<div class="row justify-content-center position-relative">
 			<div class="container-fluid dnl-container-main row pr-5 pl-5">
 				<div class="dnl-lrn row justify-content-around">
@@ -58,7 +63,7 @@
 									<a href="#course2" class="dropdown-item">Course 2</a>
 									<a href="#course3" class="dropdown-item">Course 3</a>
 									<a href="#course4" class="dropdown-item">Course 4</a>
-									<a href="#course5" class="dropdown-item active">Course 5</a>
+									<a href="#course5" class="dropdown-item">Course 5</a>
 									<a href="#course6" class="dropdown-item">Course 6</a>
 									<a href="#course7" class="dropdown-item">Course 7</a>
 									<a href="#course8" class="dropdown-item">Course 8</a>
@@ -75,7 +80,7 @@
 					</nav>
 					<div class="dnl-content-main row m-0 p-0" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
 						<ul id="1" class="col-2 list-group">
-							<li class="list-group-item">something</li>
+							<li class="list-group-item active">something</li>
 							<li class="list-group-item">something</li>
 							<li class="list-group-item">something</li>
 							<li class="list-group-item">something</li>
@@ -116,14 +121,20 @@
 								assumenda, eius iusto? Inventore placeat pariatur fugiat deleniti distinctio repellat voluptate sequi ducimus
 								mollitia.
 							</div>
-							<div class="card-footer">course title</div>
+							<div class="card-footer">
+								<form action="#" method="post">
+									<input type="radio" name="1" id="1">
+									<input type="radio" name="1" id="2">
+									<input type="radio" name="1" id="3">
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<!--/Main container-->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 	 crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

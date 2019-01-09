@@ -71,58 +71,81 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="dnl-container-main row justify-content-center" data-spy="scroll" data-target="#navbar-example2"
-				 data-offset="0">
+				<div class="row container-fluid dnl-container-main justify-content-center">
 					<div class="card col-10 col-lg-7">
-						<div class="card-header row justify-content-around">
+						<div class="card-header row justify-content-around pt-3">
 							<div class="col-5">
-								<h1>name</h1>
-								<h5>email@email.com</h5>
+								<h1>{this.state.user.first_name + " " + this.state.user.last_name}</h1>
+								<h5>{this.state.user.email}</h5>
 							</div>
-							<img class="offset-4 rounded-circle" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
+							<div class="offset-4 flex-left col">
+								<img class="rounded-circle" src="https://www.gravatar.com/avatar/867c64229cf4dd0f8b9b09c56260b24f.jpg?s=100&d=wavatar&r=g" />
+								<button href="#" class="btn btn-outline-danger m-3" onClick={this.props.logout}>Выйти</button>
+							</div>
 						</div>
 						<div class="card-body">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore esse possimus at explicabo accusamus quam
-								beatae minima, saepe pariatur, sint ratione molestias aliquid! Temporibus minima, et quibusdam sint adipisci
-								laudantium tempore quod aspernatur perspiciatis corrupti quae id laborum aut necessitatibus deleniti eligendi
-								consectetur fugiat quam repellat nulla iste dolorem suscipit praesentium culpa? Explicabo enim reiciendis
-								molestias assumenda ea rem eius? Optio alias ipsa reiciendis corporis odit accusamus enim exercitationem ad
-								quisquam unde neque dolorum at doloremque sit id ab animi consequuntur, nobis porro qui tempore, ullam rem
-								saepe. Doloribus, earum excepturi. Incidunt qui excepturi nesciunt tempora nihil distinctio dignissimos iusto
-								praesentium aspernatur est. Quae velit amet sunt, dicta placeat nihil cupiditate excepturi aperiam, officia
-								optio hic, cum facere quaerat in nam iure accusantium fugiat illum necessitatibus. Aspernatur reiciendis, id
-								magnam at natus illum, nulla molestias tempore saepe officiis ab officia cumque sed eos voluptates porro, ad
-								quisquam odit dolorem. Consectetur.</p>
+							<p>{this.state.user.about}</p>
 						</div>
 						<div class="card-footer row">
-							<h5 class="col-4">Courses created: 10</h5>
-							<h5 class="col-4 offset-4">Courses completed: 20</h5>
-							<button type="button" class="btn btn-outline-primary offset-11"><i class="fa fa-angle-double-down"></i></button>
+							<h5 class="col-4">Courses created: {this.state.createdCourses.length}</h5>
+							<h5 class="col-4 offset-4">Courses completed: {this.state.completedCourses.length}</h5>
 						</div>
 					</div>
 					<div id="dnl-user-data-container" class="accordion col-10 col-lg-7  m-0 p-0">
 						<div class="card">
-							<div class="card-header" id="headingOne">
+							<div class="card-header" id="createdCourses">
 								<h2 class="mb-0">
-									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-									 aria-controls="collapseOne">
-										Collapsible Group Item #1
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#createdCoursesData"
+									 aria-expanded="true" aria-controls="createdCoursesData">
+										Created courses
 									</button>
 								</h2>
 							</div>
-
-							<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+							<div id="createdCoursesData" class="collapse" aria-labelledby="createdCourses" data-parent="#dnl-user-data-container">
 								<div class="card-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-									officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-									moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-									keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-									butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-									haven't heard of them accusamus labore sustainable VHS.
+									<DNLContentCourses courses={this.state.createdCourses} />
 								</div>
 							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="completedCourses">
+								<h2 class="mb-0">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#completedCoursesData"
+									 aria-expanded="true" aria-controls="completedCoursesData">
+										Completed courses
+									</button>
+								</h2>
+							</div>
+							<div id="completedCoursesData" class="collapse" aria-labelledby="completedCourses" data-parent="#dnl-user-data-container">
+								<div class="card-body">
+									<DNLContentCourses courses={this.state.completedCourses} />
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+						Launch demo modal
+					</button>
 
-
+					<!-- Modal -->
+					<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+					 aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									...
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary">Save changes</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

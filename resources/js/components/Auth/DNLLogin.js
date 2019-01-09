@@ -19,11 +19,9 @@ class DNLLogin extends Component {
 			password
 		})
 			.then(response => {
-				console.log("----+===response===+----");
-				console.log(response);
 				if (response.data !== "error") {
 					this.setState({ err: false, user: response.data.data });
-					this.props.updateParent({ user: this.state.user });
+					this.props.updateProfile(this.state.user);
 				}
 				else {
 					this.setState({ err: true });
@@ -49,42 +47,31 @@ class DNLLogin extends Component {
 			}} />
 		}
 		let error = this.state.err;
-		let msg = (!error) ? 'Login Successful' : 'Wrong Credentials';
+		let msg = (!error) ? 'Успешно' : 'Неверные данные';
 		let name = (!error) ? 'alert alert-success' : 'alert alert-danger';
 		return (
 			<div className="col-6 pt-5">
 				{error != undefined && <div className={name} role="alert">{msg}</div>}
 				<form className="form-horizontal" role="form" method="POST" onSubmit={this.onSubmit.bind(this)}>
 					<div className="form-group">
-						<label htmlFor="email" className="col-md-4 control-label">E-Mail Address</label>
+						<label htmlFor="email" className="col-md-4 control-label">E-Mail</label>
 						<div className="col-md-6">
 							<input id="email" type="email" ref="email" className="form-control" name="email" onChange={this.onChange.bind(this)} required />
 						</div>
 					</div>
 					<div className="form-group">
-						<label htmlFor="password" className="col-md-4 control-label">Password</label>
+						<label htmlFor="password" className="col-md-4 control-label">Пароль</label>
 
 						<div className="col-md-6">
 							<input id="password" type="password" ref="password" className="form-control" name="password" onChange={this.onChange.bind(this)} required />
 						</div>
 					</div>
 					<div className="form-group">
-						<div className="col-md-6 col-md-offset-4">
-							<div className="checkbox">
-								<label>
-									<input type="checkbox" name="remember" /> Remember Me
-								</label>
-							</div>
-						</div>
-					</div>
-					<div className="form-group">
 						<div className="col-md-8 col-md-offset-4">
 							<button type="submit" className="btn btn-primary">
-								Login
+								Войти
 							</button>
-							<li className="btn btn-link">
-								<Link to="forgotpassword">Forgot Your Password?</Link>
-							</li>
+							<Link to="/register" className="btn btn-outline-primary">Регистарция</Link>
 						</div>
 					</div>
 				</form>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const getFullUser = (id, func) => {
-	axios("/api/user/full/" + id)
+const removeCourse = (courseId, func) => {
+	axios.delete("/api/course/" + courseId)
 		.then(data =>
 		{
 			func(data.data.data);
@@ -11,4 +11,4 @@ const getFullUser = (id, func) => {
 		})
 }
 
-export default getFullUser;
+export default removeCourse;
