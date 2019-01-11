@@ -109,6 +109,16 @@ class CoursesController extends Controller
 			->where('course_id', $request->course_id)
 			->where('status', 'p')->first();
 
+		if ($course->user_progress == null) {
+			$course->user_progress = UserProgress::create([
+				'course_id' => $course['id'],
+				'chapter_id' => $course['chapters'][0]['id'],
+				'lesson_id' => $course['chapters'][0]['lessons'][0]['id'],
+				'user_id' => $request->user_id,
+				'status' => 'p'
+			]);
+		}
+
 		return fractal()
 			->item($course, new LearnCourseTransformer)
 			->toJson();

@@ -11,6 +11,7 @@ import DNLCourseLearning from './Body/DNLCourseLearning';
 import DNLRegister from './Auth/DNLRegister';
 import DNLUser from './Body/User/DNLUser';
 import DNLCourseCreating from './Body/CourseCreating/DNLCourseCreating';
+import DNLUserCustomize from './Body/User/DNLUserCustomize';
 
 export default class DNLMain extends Component {
 
@@ -43,9 +44,10 @@ export default class DNLMain extends Component {
 					<Route path="/login" render={(props) => <DNLLogin {...props} updateProfile={this.updateState.bind(this)} />} />
 					<Route path="/register" component={DNLRegister} />
 					<Route path="/course/create" exact strict render={(props) => <DNLCourseCreating {...props} currentUser={this.state.user} />} />
-					<Route path="/course/learning/:courseId" component={DNLCourseLearning} />
+					<Route path="/course/learning/:courseId" render={(props) => <DNLCourseLearning {...props} currentUser={this.state.user} />} />
 					<Route path="/course::courseId" render={(props) => <DNLCourse {...props} currentUser={this.state.user} />} />
-					<Route path="/user/:userId" render={(props) => <DNLUser {...props} currentUser={this.state.user} />}/>
+					<Route path="/user_customize/:userId" render={(props) => <DNLUserCustomize {...props} currentUser={this.state.user} updateProfile={this.updateState.bind(this)} />} />
+					<Route path="/user/:userId" strict render={(props) => <DNLUser {...props} currentUser={this.state.user} />}/>
 				</div>
 			</div>
 		);

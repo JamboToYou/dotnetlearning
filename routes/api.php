@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'user'], function(){
 	Route::get('/{id}', 'UsersController@getUser');
 	Route::get('/full/{id}', 'UsersController@getFullUser');
+	Route::post('/customize/{id}', 'UsersController@customizeUser');
+	Route::post('/changeRole/{id}', 'UsersController@changeRole');
 });
 Route::redirect('/testimg', Gravatar::get('jamboto@example.com', ['size' => 100, 'fallback' => 'wavatar']), 301);
 

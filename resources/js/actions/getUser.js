@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const getUser = (func) => {
-	axios("/api/user")
+const getUser = (userId, func) => {
+	axios("/api/user/"+userId)
 		.then(data => {
 			func(data.data.data);
 		})

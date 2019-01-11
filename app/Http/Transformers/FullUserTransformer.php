@@ -18,15 +18,15 @@ class FullUserTransformer extends \League\Fractal\TransformerAbstract
 			'role' => $user->role,
 			'email' => $user->email,
 			'avatar' => $user->avatar,
-			'completedCourses' => [],
+			'watchedCourses' => [],
 			'createdCourses' => [],
 			'created_at' => $user->created_at
 		];
 
-		if ($user->completedCourses != null)
-			foreach ($user->completedCourses as $course)
+		if ($user->watchedCourses != null)
+			foreach ($user->watchedCourses as $course)
 				array_push(
-					$result['completedCourses'],
+					$result['watchedCourses'],
 					$courseTransformer->transform($course));
 
 		if ($user->createdCourses != null)

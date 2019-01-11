@@ -4,7 +4,6 @@ const addLesson = (lesson, func) => {
 	axios.post("/api/lesson", lesson)
 		.then(data =>
 		{
-			console.log(lesson);
 			func(data.data.data);
 		})
 		.catch(error => {

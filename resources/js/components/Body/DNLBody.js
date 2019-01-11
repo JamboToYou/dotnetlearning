@@ -23,7 +23,7 @@ class DNLBody extends React.Component {
 	render() {
 		return (
 			<div className="container-fluid content">
-				<DNLBodyNav refs={this.state.courses.map(course => {return { refId: course.id, label: course.title }})} currentUser={this.props.currentUser} />
+				<DNLBodyNav brand="Курсы" refs={this.state.courses.map(course => {return { refId: course.id, label: course.title }})} currentUser={this.props.currentUser} />
 				<DNLContentCourses courses={this.state.courses} currentUser={this.props.currentUser} />
 			</div>
 		)

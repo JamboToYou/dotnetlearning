@@ -66,6 +66,10 @@
   border-radius: 50%;
 }
 
+ul li {
+  list-style: none;
+}
+
 a.list-group-item-active {
   text-decoration: none;
 }
@@ -103,5 +107,9 @@ a.list-group-item-active {
 
 .dnl-lrn {
   height: 1vh;
+}
+
+.dnl-body-nav-dropdown-body {
+  overflow-y: scroll;
 }
 
